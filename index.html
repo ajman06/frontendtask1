@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Webpage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        nav .nav-links {
+            display: flex;
+        }
+
+        nav .nav-links a {
+            text-decoration: none;
+            color: #fff;
+            margin: 0 0.5rem;
+            transition: color 0.3s;
+        }
+
+        nav .nav-links a:hover {
+            color: #00bcd4;
+        }
+
+        nav .menu-icon {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        nav .nav-links.mobile-active {
+            display: flex;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background-color: #333;
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        nav .nav-links.mobile-active a {
+            margin: 0.5rem 0;
+        }
+
+        @media (max-width: 1024px) {
+            nav .nav-links {
+                display: none;
+            }
+
+            nav .menu-icon {
+                display: block;
+                color: #fff;
+            }
+        }
+
+        .form-section, .gallery-section {
+            max-width: 1200px;
+            margin: 5rem auto 2rem;
+            padding: 1rem;
+        }
+
+        .form-section h2, .gallery-section h2 {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        form label {
+            margin-bottom: 0.5rem;
+        }
+
+        form input, form textarea, form button {
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        form button {
+            background-color: #00bcd4;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        form button:hover {
+            background-color: #008c9e;
+        }
+
+        .gallery-section {
+            text-align: center;
+        }
+
+        .gallery-section h2 {
+            margin-bottom: 2rem;
+        }
+
+        .gallery-section .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .gallery-section img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            transition: transform 0.3s;
+        }
+
+        .gallery-section img:hover {
+            transform: scale(1.05);
+        }
+
+        .responsive-image {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .responsive-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuIcon = document.querySelector('.menu-icon');
+            const navLinks = document.querySelector('.nav-links');
+            const navLinksItems = document.querySelectorAll('.nav-links a');
+
+            menuIcon.addEventListener('click', () => {
+                navLinks.classList.toggle('mobile-active');
+            });
+
+            navLinksItems.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navLinks.classList.contains('mobile-active')) {
+                        navLinks.classList.remove('mobile-active');
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Logo</div>
+            <div class="menu-icon">&#9776;</div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="#aboutus">About Us</a>
+				<a href="#gallery">Gallery</a>
+                <a href="#contact">Contact</a>
+				
+            </div>
+        </nav>
+    </header>
+
+    <section class="responsive-image">
+        <img width="100%" src="image/6.jpg" alt="Header Responsive Image">
+    </section>
+	
+	<section class="form-section">
+        <h2 id="aboutus">About Us</h2>
+        <p>
+		Trade‑in values will vary based on the condition, year, and configuration of your eligible trade‑in device.
+		Not all devices are eligible for credit. You must be at least the age of majority to be eligible to trade in for credit or for an Apple Gift Card.
+		Trade‑in value may be applied toward qualifying new device purchase, or added to an Apple Gift Card. 
+		Actual value awarded is based on receipt of a qualifying device matching the description provided when estimate was made. 
+		Sales tax may be assessed on full value of a new device purchase. 
+		In‑store trade‑in requires presentation of a valid photo ID (local law may require saving this information). 
+		Offer may not be available in all stores, and may vary between in‑store and online trade‑in. Some stores may have additional requirements. 
+		Apple or its trade‑in partners reserve the right to refuse, cancel, or limit quantity of any trade‑in transaction for any reason. 
+		More details are available from Apple’s trade-in partner for trade‑in and recycling of eligible devices. 
+		Restrictions and limitations may apply
+		</p>
+    </section>
+	
+	<section class="gallery-section">
+        <h2 id="gallery">Dynamic Gallery</h2>
+        <div class="gallery-grid">
+            <img src="image/1.jpg" alt="Gallery Image 1">
+			<img src="image/2.jpg" alt="Gallery Image 2">
+			<img src="image/3.jpg" alt="Gallery Image 3">
+			<img src="image/4.jpg" alt="Gallery Image 4">
+			<img src="image/5.jpg" alt="Gallery Image 5">
+        </div>
+    </section>
+
+    
+
+    <section class="responsive-image">
+        <img width="100%" src="image/6.jpg" alt="Responsive Placeholder Image">
+    </section>
+	
+	<section class="form-section">
+        <h2 id="contact">Submit Your Details</h2>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    
+
+    <footer>
+        <p>&copy; 2025 . All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
